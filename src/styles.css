@@ -1,0 +1,250 @@
+:root{
+  --primary:#0c2055; --primary-2:#16327b; --navy:#07101f; --navy-2:#0e1b33;
+  --green:#1e974a; --green-2:#a7d567; --green-grad:linear-gradient(90deg,#a7d567,#54bb4e 50%,#1ba93b);
+  --gold:#b98e4a; --gold-2:#e2bf79; --gold-grad:linear-gradient(90deg,#c1954c,#e8c98a 50%,#905b27);
+  --text:#262626; --muted:#6b7280; --soft:#f4f5f7; --line:#e5e7eb;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:"Noto Sans Thai",Poppins,sans-serif;color:var(--text);background:#fff;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.en{font-family:Poppins,sans-serif}
+/* zoomed crop of FB ad posts: shows only the photo part, hides overlaid text/QR */
+.crop{background:var(--src) var(--p,50% 50%)/var(--s,220%) no-repeat}
+
+/* buttons */
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:9px 24px;font-size:15px;font-weight:500;border:0;cursor:pointer;transition:.25s}
+.pill-dark{background:var(--primary);color:#fff}
+.pill-dark:hover{background:var(--primary-2)}
+.pill-green{background:var(--green-grad);color:#fff;box-shadow:0 8px 20px rgba(30,151,74,.3)}
+.pill-green:hover{transform:translateY(-2px)}
+.more{display:inline-flex;align-items:center;gap:14px;font-family:Poppins,sans-serif;font-size:15px;font-weight:500;color:var(--primary);letter-spacing:.02em}
+.more i{display:grid;place-items:center;width:46px;height:26px;border-radius:999px;background:var(--primary);color:#fff;font-style:normal;transition:.25s}
+.more:hover i{background:var(--green);transform:translateX(4px)}
+
+/* headings in the ref's style: letter-spaced eyebrow + big two-weight title */
+.eyebrow{font-family:Poppins,sans-serif;font-weight:600;letter-spacing:.32em;font-size:15px;background:var(--green-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.big{font-family:Poppins,sans-serif;font-size:clamp(32px,4.4vw,56px);letter-spacing:.06em;line-height:1.1;color:var(--primary);font-weight:600}
+.big em{font-weight:300;font-style:italic;letter-spacing:.02em}
+.big b{font-weight:600;background:var(--green-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-weight:500;font-size:clamp(16px,1.6vw,20px);color:#222;margin-top:10px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+.bar{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;line-height:1.05}
+.brand img{width:48px;height:48px;border-radius:8px}
+.brand b{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:17px;letter-spacing:.12em;color:var(--primary)}
+.brand small{display:block;font-family:Poppins,sans-serif;font-size:9.5px;letter-spacing:.16em;color:var(--gold)}
+.menu{display:flex;align-items:center;gap:28px}
+.menu a:not(.pill){font-size:15.5px;color:#333;transition:color .2s}
+.menu a:not(.pill):hover{color:var(--gold)}
+.burger{display:none;background:none;border:0;font-size:26px;color:var(--primary);cursor:pointer}
+
+/* floating contact panel */
+.rail{position:fixed;right:10px;bottom:60px;z-index:45;display:flex;flex-direction:column;gap:6px;background:#fff;padding:10px 8px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.rail a{width:30px;height:30px;display:grid;place-items:center;border-radius:8px;transition:.2s}
+.rail a:hover{background:var(--soft)}
+
+/* 1 hero: single banner image (PAIWAL's own 16:9 cover) */
+.hero{background:var(--navy)}
+.hero img{width:100%;aspect-ratio:16/9;max-height:calc(100vh - 84px);object-fit:cover}
+.cdots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.5);cursor:pointer}
+
+/* 2 home style */
+.style{padding:100px 0 90px;text-align:center}
+.carousel{position:relative;margin-top:46px}
+.ctrack{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 10px}
+.ctrack::-webkit-scrollbar{display:none}
+.hcard{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;text-align:center}
+.hcard .im{aspect-ratio:16/11;border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(12,32,85,.12)}
+.hcard img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.hcard:hover img{transform:scale(1.05)}
+.hcard h3{font-family:Poppins,sans-serif;font-size:24px;font-weight:500;margin:26px 0 8px;color:#333;letter-spacing:.02em}
+.hcard h3 b{font-weight:500;color:var(--green)}
+.hcard h4{font-size:15px;font-weight:500;color:#333;margin-bottom:6px}
+.hcard ul{list-style:none;font-size:14.5px;color:#444;line-height:1.75}
+.hcard .q{display:inline-block;margin-top:12px;font-size:14px;color:var(--green);font-weight:500}
+.carr{position:absolute;top:calc(50% - 90px);width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:#333;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.08);z-index:2}
+.carr.l{left:-18px}.carr.r{right:-18px}
+.cdots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.cdots button{background:#cfd3da}
+.cdots button[aria-current=true]{background:var(--primary)}
+.trust{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:22px}
+.trust span{background:var(--soft);border-radius:999px;padding:6px 16px;font-size:14px;color:var(--primary)}
+.trust span b{color:var(--green);font-weight:600}
+
+/* 3 portfolio */
+.portfolio{position:relative;overflow:hidden;padding:90px 0 100px;color:#fff;text-align:center}
+.portfolio>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 75%}
+.portfolio::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,16,31,.9),rgba(7,16,31,.78) 45%,rgba(7,16,31,.35) 100%)}
+.portfolio .wrap{position:relative;z-index:2}
+.portfolio .big{color:#fff;letter-spacing:.2em}
+.portfolio .lead{color:#fff}
+.pcard{background:#fff;border-radius:14px;padding:22px;margin-top:34px;box-shadow:0 20px 50px rgba(7,16,31,.25)}
+.albums{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.albums button{border:1px solid var(--line);background:#fff;color:var(--primary);padding:6px 18px;border-radius:999px;font-size:14px;cursor:pointer;transition:.2s}
+.albums button[aria-selected=true]{background:var(--green-grad);border-color:transparent;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid figure{position:relative;aspect-ratio:3/2;overflow:hidden;border-radius:4px;background:var(--soft)}
+.grid img,.grid .crop{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.grid figure:hover img,.grid figure:hover .crop{transform:scale(1.05)}
+.grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 8px;font-size:13.5px;text-align:left;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6));opacity:0;transition:.3s}
+.grid figure:hover figcaption{opacity:1}
+.pcard .more{margin-top:20px}
+
+/* 4 stories (video-style cards) */
+.stories{padding:100px 0 90px}
+.stories .big{text-align:left}
+.stories .big b{letter-spacing:.04em}
+.stories .sub{color:#444;margin-top:12px;max-width:760px}
+.vcard{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/10;color:#fff}
+.vcard .crop,.vcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.vcard:hover .crop,.vcard:hover img{transform:scale(1.05)}
+.vcard::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(7,16,31,.6) 55%,rgba(7,16,31,.95))}
+.vcard span{position:absolute;z-index:1;left:16px;right:16px;bottom:14px;display:flex;align-items:center;gap:10px;font-weight:500;font-size:15px;line-height:1.35}
+.vcard span i{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid #fff;display:grid;place-items:center;font-style:normal;font-size:12px}
+.stories .more{margin-top:26px}
+
+/* 5 contact split: service map + lead form */
+.contact{display:grid;grid-template-columns:1fr 1fr;background:var(--navy-2);color:#fff}
+.contact .mapside{position:relative;background:radial-gradient(circle at 30% 30%,#16327b 0%,#0b1830 70%);display:grid;place-items:center;padding:50px 30px}
+.contact .mapside h3{position:absolute;top:28px;left:32px;font-weight:500;font-size:16px;color:var(--green-2)}
+.thmap{width:100%;max-width:640px;height:auto;overflow:visible}
+.th-rest{fill:#16327b;fill-opacity:.55;stroke:rgba(255,255,255,.18);stroke-width:.5}
+.th-serv{fill:url(#tgreen);stroke:url(#tgold);stroke-width:.8}
+.th-box{fill:none;stroke:#e6c275;stroke-width:1.2;stroke-dasharray:4 3}
+.th-link{stroke:#e6c275;stroke-width:1;stroke-opacity:.6;stroke-dasharray:4 3}
+.th-frame{fill:rgba(7,16,31,.72);stroke:url(#tgold);stroke-width:1.5}
+.th-near{fill:#16327b;fill-opacity:.45;stroke:rgba(255,255,255,.15);stroke-width:.8}
+.th-zoom .sv{fill:url(#tgreen);stroke:url(#tgold);stroke-width:2;stroke-linejoin:round;transition:fill-opacity .3s}
+.th-zoom .sv:hover{fill-opacity:.75}
+.th-lbl{pointer-events:none}
+.thmap text{fill:#fff;font-size:17px;font-weight:600;text-anchor:middle;paint-order:stroke;stroke:rgba(7,16,31,.55);stroke-width:3px;font-family:"Noto Sans Thai",sans-serif}
+.thmap .th-o{text-anchor:start;font-size:14px;fill:#ecd28d}
+.thmap .th-cap{text-anchor:start;font-size:15px;fill:#a7d567;font-weight:500}
+.contact .info{padding:64px clamp(28px,6vw,90px) 48px}
+.info img{width:64px;border-radius:12px;margin-bottom:18px}
+.info small{display:block;font-family:Poppins,sans-serif;letter-spacing:.24em;font-size:14px;color:var(--green-2)}
+.info h2{font-family:Poppins,sans-serif;font-size:clamp(32px,3.6vw,48px);font-weight:600;letter-spacing:.06em;line-height:1.15;margin-top:6px}
+.info>p{color:rgba(255,255,255,.8);margin-top:10px;max-width:460px}
+.info .ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 30px}
+.pill-line{border:1px solid rgba(255,255,255,.55);color:#fff}
+.pill-line:hover{background:#fff;color:var(--primary)}
+.info dl{display:grid;gap:16px;max-width:480px}
+.info dt{font-size:13px;color:var(--green-2);font-weight:500}
+.info dd{font-size:15px;color:rgba(255,255,255,.9);line-height:1.6}
+.info dd a:hover,.copy a:hover{color:var(--green-2)}
+.info .social{margin-top:26px}
+.contact .copy{grid-column:1/-1}
+.social{display:flex;gap:10px}
+.social a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:grid;place-items:center;transition:.2s}
+.social a:hover{background:var(--green);border-color:var(--green)}
+.copy{background:#040a15;text-align:center;font-size:13px;color:rgba(255,255,255,.75);padding:18px 16px;font-family:Poppins,sans-serif;letter-spacing:.03em}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.ctrack{transition:none;scroll-behavior:auto}}
+/* ===== motion (only for visitors who have not asked for reduced motion) =====
+   Reveal animations use fill-mode "backwards" so hover transforms still work once they finish. */
+.hero{position:relative;overflow:hidden}
+.stg>:nth-child(2){--i:1}.stg>:nth-child(3){--i:2}.stg>:nth-child(4){--i:3}.stg>:nth-child(5){--i:4}.stg>:nth-child(6){--i:5}.stg>:nth-child(7){--i:6}.stg>:nth-child(8){--i:7}.stg>:nth-child(9){--i:8}.stg>:nth-child(10){--i:9}.stg>:nth-child(11){--i:10}.stg>:nth-child(12){--i:11}
+@media (prefers-reduced-motion:no-preference){
+  /* hero: fade in from a closer crop, then a slow continuous zoom; one gold light sweep */
+  .hero img{animation:heroIn 2s cubic-bezier(.2,.7,.2,1) both,kenburns 22s 2s ease-in-out infinite alternate}
+  @keyframes heroIn{from{opacity:0;transform:scale(1.12)}to{opacity:1;transform:none}}
+  @keyframes kenburns{from{transform:none}to{transform:scale(1.06)}}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,236,190,.55) 50%,transparent 65%);transform:translateX(-100%);animation:sweep 1.8s 1.4s cubic-bezier(.6,0,.3,1) forwards}
+  @keyframes sweep{to{transform:translateX(100%)}}
+
+  /* headings: curtain wipe upward plus wide letter spacing settling in */
+  .js .eyebrow.rv{letter-spacing:.8em;transition:opacity .9s ease,transform .9s ease,letter-spacing 1.8s cubic-bezier(.2,.7,.2,1)}
+  .js .eyebrow.rv.in{letter-spacing:.32em}
+  /* the wipe runs only after .in, so the observer never sees a fully clipped heading */
+  .js .big.rv.in{animation:wipe 1.3s cubic-bezier(.77,0,.18,1) backwards}
+  @keyframes wipe{from{clip-path:inset(0 0 100% 0);transform:translateY(50px)}to{clip-path:inset(-40% -10% -40% -10%);transform:none}}
+  .eyebrow,.big b,.panel h3 span{background-size:220% 100%;animation:sheen 7s ease-in-out infinite}
+  @keyframes sheen{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+
+  /* cards and photos: rise in sequence, the picture inside lifts like a curtain */
+  .js .stg>*{opacity:0}
+  .js .in .stg>*,.js .stg.in>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0)*110ms + 150ms);opacity:1}
+  @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  .js .in .stg>* img,.js .in .stg>* .crop{animation:unveil 1.4s cubic-bezier(.77,0,.18,1) backwards;animation-delay:calc(var(--i,0)*110ms + 150ms)}
+  @keyframes unveil{from{clip-path:inset(100% 0 0 0);transform:scale(1.3)}to{clip-path:inset(0);transform:none}}
+  .js .pcard.rv{transform:translateY(80px) scale(.94);transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .js .pcard.rv.in{transform:none}
+
+  /* hovers */
+  .hcard .im{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+  .hcard:hover .im{transform:translateY(-10px);box-shadow:0 26px 46px rgba(12,32,85,.24)}
+  .vcard{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+  .vcard:hover{transform:perspective(900px) rotateX(5deg) translateY(-8px);box-shadow:0 24px 40px rgba(7,16,31,.3)}
+  .grid figure{transition:box-shadow .4s}
+  .grid figure:hover{box-shadow:0 14px 30px rgba(7,16,31,.25)}
+  .pill-green{position:relative;overflow:hidden}
+  .pill-green::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+  .pill-green:hover::after{transform:translateX(120%)}
+
+  /* contact: map and details slide in from opposite sides */
+  .js .mapside.rv{transform:translateX(-80px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1)}
+  .js .info.rv{transform:translateX(80px);transition:opacity 1.1s ease .15s,transform 1.3s cubic-bezier(.2,.7,.2,1) .15s}
+  .js .mapside.rv.in,.js .info.rv.in{transform:none}
+  /* map, played in order within 3s: Thailand -> service area lights up -> box locks on -> lines draw out ->
+     zoom panel grows from the lines -> provinces drop in and their borders draw -> names and office pin */
+  .mapside.in .thmap *{transform-box:fill-box}
+  .mapside.in .th-rest{transform-origin:center;animation:mapIn .5s cubic-bezier(.2,.7,.2,1) backwards}
+  .mapside.in .th-serv{animation:servIn .5s .35s ease backwards}
+  .mapside.in .th-box{transform-origin:center;animation:lockOn .35s .7s cubic-bezier(.2,.7,.2,1.4) backwards}
+  .mapside.in .th-link{animation:lineOut .4s 1s cubic-bezier(.6,0,.3,1) backwards}
+  .mapside.in .th-frame{transform-origin:left center;animation:panelIn .45s 1.3s cubic-bezier(.2,.7,.2,1) backwards}
+  .mapside.in .th-near,.mapside.in .th-cap{animation:fadeIn .4s 1.6s ease backwards}
+  .mapside.in .th-zoom .sv{transform-origin:center;stroke-dasharray:2600;stroke-dashoffset:2600;animation:prov .45s 1.6s cubic-bezier(.2,.7,.2,1) backwards,draw .95s 1.7s ease forwards}
+  .mapside.in .th-zoom .sv:nth-child(2){animation-delay:1.68s,1.78s}.mapside.in .th-zoom .sv:nth-child(3){animation-delay:1.76s,1.86s}.mapside.in .th-zoom .sv:nth-child(4){animation-delay:1.84s,1.94s}.mapside.in .th-zoom .sv:nth-child(5){animation-delay:1.92s,2.02s}
+  .mapside.in .th-lbl text{animation:fadeIn .35s 2.3s ease backwards}
+  .mapside.in .th-lbl use{transform-origin:50% 100%;animation:pinDrop .4s 2.5s cubic-bezier(.2,.7,.2,1.5) backwards,pin 2.4s 2.9s ease-in-out infinite}
+  @keyframes mapIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+  @keyframes servIn{0%{opacity:0;filter:brightness(1)}60%{opacity:1;filter:brightness(1.8)}100%{opacity:1;filter:none}}
+  @keyframes lockOn{from{opacity:0;transform:scale(1.6)}to{opacity:1;transform:none}}
+  @keyframes lineOut{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+  @keyframes panelIn{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:none}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes prov{from{opacity:0;transform:translateY(-30px) scale(.8)}to{opacity:1;transform:none}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pinDrop{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:none}}
+  @keyframes pin{0%,100%{transform:none}50%{transform:translateY(-6px)}}
+
+  /* floating contact panel */
+  .rail{animation:railIn .8s 1.2s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes railIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+  .rail a:first-child svg{animation:ring 5s ease-in-out 3s infinite}
+  @keyframes ring{0%,12%,100%{transform:none}2%,6%,10%{transform:rotate(-14deg)}4%,8%{transform:rotate(14deg)}}
+
+  /* portfolio background drifts slower than the page (clipped by .portfolio overflow) */
+  @supports (animation-timeline:view()){
+    .portfolio>img{animation:drift linear both;animation-timeline:view()}
+    @keyframes drift{from{transform:scale(1.18) translateY(-6%)}to{transform:scale(1.18) translateY(6%)}}
+  }
+}
+
+@media (max-width:1024px){
+  .menu{display:none}
+  .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:16px;padding:22px 32px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+  .burger{display:block}
+  .hcard,.vcard{flex-basis:calc((100% - 24px)/2)}
+  .contact{grid-template-columns:1fr}
+  .carr.l{left:-6px}.carr.r{right:-6px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .hcard,.vcard{flex-basis:88%}
+  .grid{grid-template-columns:1fr 1fr}
+  .thmap text{font-size:22px}
+  .thmap .th-cap{font-size:19px}
+  .thmap .th-o{display:none}
+  .rail{bottom:16px}
+}
